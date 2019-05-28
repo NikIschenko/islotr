@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "by.issoft",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.0.1",
+    "applicationType": "monolith",
+    "baseName": "islotr",
+    "packageName": "by.issoft",
+    "packageFolder": "by/issoft",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjU4NjQzMmNhNDczNGE2NDIzNzZiZDI4YzQyZjNiYzAwYWI3ZTQ2YTE5ZWI1YTFhMzBjZmYzYzdhOWJiY2UxNGQyZDE5YzdmYjQzMzlhYTZkYTQ0ZDJiZGM2MTgzYjYwNzljMTE1ODM1NmYxYzA5ZTg1MzM0ZWJkMzdkOWE5YjU=",
+    "clientFramework": "angularX",
+    "clientTheme": "darkly",
+    "clientThemeVariant": "dark",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": ["cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "by", "ru", "ua"]
+  }
+}
