@@ -1,0 +1,22 @@
+{
+  "islotrApp": {
+    "language": {
+      "home": {
+        "title": "Languages",
+        "createLabel": "Створити новий Language",
+        "createOrEditLabel": "Створити чи редагувати Language"
+      },
+      "created": "Новий Language створений з ідентифікатором {{ param }}",
+      "updated": "Language оновлений з ідентифікатором {{ param }}",
+      "deleted": "Language видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Language {{ id }}?"
+      },
+      "detail": {
+        "title": "Language"
+      },
+      "title": "Title",
+      "unit": "Unit"
+    }
+  }
+}

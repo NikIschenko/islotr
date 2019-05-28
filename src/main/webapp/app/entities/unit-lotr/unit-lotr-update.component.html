@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-unit-lotr-heading" jhiTranslate="islotrApp.unit.home.createOrEditLabel">Create or edit a Unit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!unit.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.unit.hireDate" for="field_hireDate">Hire Date</label>
+                    <div class="input-group">
+                        <input id="field_hireDate" type="text" class="form-control" name="hireDate" ngbDatepicker  #hireDateDp="ngbDatepicker" formControlName="hireDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="hireDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.unit.biography" for="field_biography">Biography</label>
+                    <textarea class="form-control" name="biography" id="field_biography"
+                              formControlName="biography"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.unit.numberOfTeeth" for="field_numberOfTeeth">Number Of Teeth</label>
+                    <input type="number" class="form-control" name="numberOfTeeth" id="field_numberOfTeeth"
+                           formControlName="numberOfTeeth"/>
+                    <div *ngIf="editForm.get('numberOfTeeth').invalid && (editForm.get('numberOfTeeth').dirty || editForm.get('numberOfTeeth').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numberOfTeeth').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numberOfTeeth').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 32 }">
+                            This field cannot be more than 32.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('numberOfTeeth')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.unit.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="userId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "islotrApp": {
+    "expedition": {
+      "home": {
+        "title": "Expeditions",
+        "createLabel": "Создать новый Expedition",
+        "createOrEditLabel": "Создать или отредактировать Expedition"
+      },
+      "created": "Новый Expedition создан с идентификатором {{ param }}",
+      "updated": "Expedition обновлен с идентификатором {{ param }}",
+      "deleted": "Expedition удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Expedition {{ id }}?"
+      },
+      "detail": {
+        "title": "Expedition"
+      },
+      "complexity": "Complexity",
+      "dispatchTime": "Dispatch Time",
+      "deadLine": "Dead Line",
+      "rate": "Rate",
+      "unit": "Unit"
+    }
+  }
+}

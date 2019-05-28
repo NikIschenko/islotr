@@ -1,0 +1,11 @@
+{
+  "islotrApp": {
+    "Complexity": {
+      "null": "",
+      "EXTREME": "EXTREME",
+      "HARD": "HARD",
+      "NORMAL": "NORMAL",
+      "EASY": "EASY"
+    }
+  }
+}

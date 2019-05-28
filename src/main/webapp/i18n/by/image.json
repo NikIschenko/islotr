@@ -1,0 +1,23 @@
+{
+  "islotrApp": {
+    "image": {
+      "home": {
+        "title": "Images",
+        "createLabel": "Стварыць новы Image",
+        "createOrEditLabel": "Стварыць або адрэдагаваць Image"
+      },
+      "created": "Новы Image створан з ідэнтыфікатарам {{ param }}",
+      "updated": "Image абноўлен з ідэнтыфікатарам {{ param }}",
+      "deleted": "Image выдален з ідэнтыфікатарам {{ param }}",
+      "delete": {
+        "question": "Вы ўпэўнены, што жадаеце выдаліць Image {{ id }}?"
+      },
+      "detail": {
+        "title": "Image"
+      },
+      "image": "Image",
+      "setUpDate": "Set Up Date",
+      "unit": "Unit"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="islotrApp.image.home.title">Images</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-image-lotr" [routerLink]="['/image-lotr/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="islotrApp.image.home.createLabel">
+            Create new Image
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="images">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="islotrApp.image.image">Image</span></th>
+            <th><span jhiTranslate="islotrApp.image.setUpDate">Set Up Date</span></th>
+            <th><span jhiTranslate="islotrApp.image.unit">Unit</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let image of images ;trackBy: trackId">
+                <td><a [routerLink]="['/image-lotr', image.id, 'view' ]">{{image.id}}</a></td>
+                <td>
+                    <a *ngIf="image.image" (click)="openFile(image.imageContentType, image.image)">
+                        <img [src]="'data:' + image.imageContentType + ';base64,' + image.image" style="max-height: 30px;" alt="image image"/>
+                    </a>
+                    <span *ngIf="image.image">{{image.imageContentType}}, {{byteSize(image.image)}}</span>
+                </td>
+                <td>{{image.setUpDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="image.unitId">
+                        <a [routerLink]="['../unit-lotr', image.unitId , 'view' ]" >{{image.unitId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/image-lotr', image.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/image-lotr', image.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'image-lotr', { outlets: { popup: image.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

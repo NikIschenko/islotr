@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="unit">
+            <h2><span jhiTranslate="islotrApp.unit.detail.title">Unit</span> {{unit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="islotrApp.unit.hireDate">Hire Date</span></dt>
+                <dd>
+                    <span>{{unit.hireDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="islotrApp.unit.biography">Biography</span></dt>
+                <dd>
+                    <span>{{unit.biography}}</span>
+                </dd>
+                <dt><span jhiTranslate="islotrApp.unit.numberOfTeeth">Number Of Teeth</span></dt>
+                <dd>
+                    <span>{{unit.numberOfTeeth}}</span>
+                </dd>
+                <dt><span jhiTranslate="islotrApp.unit.user">User</span></dt>
+                <dd>
+                    {{unit.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unit-lotr', unit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

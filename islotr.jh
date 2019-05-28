@@ -1,0 +1,42 @@
+
+entity Unit {
+	hireDate LocalDate,
+	biography TextBlob,
+    numberOfTeeth Integer min(0) max(32)
+}
+relationship OneToOne {
+	Unit to User
+}
+
+entity Image {
+	image ImageBlob,
+    setUpDate ZonedDateTime
+}
+relationship ManyToOne {
+	Image to Unit
+}
+
+entity Language {
+    title String minlength(1) maxlength(15)
+}
+relationship ManyToMany {
+	Language to Unit
+}
+
+enum Complexity {
+	EXTREME, HARD, NORMAL, EASY 
+}
+entity Expedition {
+	complexity Complexity, 
+    dispatchTime ZonedDateTime,
+    deadLine LocalDate,
+    rate Double min(0) max(1)
+}
+relationship OneToMany {
+	Unit to Expedition
+}
+
+//paginate User, Expedition, Language with infinite-scroll
+dto * with mapstruct
+service all with serviceImpl 
+angularSuffix * with lotr

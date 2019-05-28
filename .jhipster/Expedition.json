@@ -1,0 +1,47 @@
+{
+    "name": "Expedition",
+    "fields": [
+        {
+            "fieldName": "complexity",
+            "fieldType": "Complexity",
+            "fieldValues": "EXTREME,HARD,NORMAL,EASY"
+        },
+        {
+            "fieldName": "dispatchTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "deadLine",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 1
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "unit",
+            "otherEntityRelationshipName": "expedition",
+            "relationshipName": "unit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190528202148",
+    "entityTableName": "expedition",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "lotr"
+}

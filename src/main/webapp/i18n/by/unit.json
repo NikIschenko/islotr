@@ -1,0 +1,27 @@
+{
+  "islotrApp": {
+    "unit": {
+      "home": {
+        "title": "Units",
+        "createLabel": "Стварыць новы Unit",
+        "createOrEditLabel": "Стварыць або адрэдагаваць Unit"
+      },
+      "created": "Новы Unit створан з ідэнтыфікатарам {{ param }}",
+      "updated": "Unit абноўлен з ідэнтыфікатарам {{ param }}",
+      "deleted": "Unit выдален з ідэнтыфікатарам {{ param }}",
+      "delete": {
+        "question": "Вы ўпэўнены, што жадаеце выдаліць Unit {{ id }}?"
+      },
+      "detail": {
+        "title": "Unit"
+      },
+      "hireDate": "Hire Date",
+      "biography": "Biography",
+      "numberOfTeeth": "Number Of Teeth",
+      "user": "User",
+      "expedition": "Expedition",
+      "image": "Image",
+      "language": "Language"
+    }
+  }
+}

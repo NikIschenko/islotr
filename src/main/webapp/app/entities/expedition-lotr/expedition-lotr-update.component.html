@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-expedition-lotr-heading" jhiTranslate="islotrApp.expedition.home.createOrEditLabel">Create or edit a Expedition</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!expedition.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.expedition.complexity" for="field_complexity">Complexity</label>
+                    <select class="form-control" name="complexity" formControlName="complexity" id="field_complexity">
+                        <option value="EXTREME">{{'islotrApp.Complexity.EXTREME' | translate}}</option>
+                        <option value="HARD">{{'islotrApp.Complexity.HARD' | translate}}</option>
+                        <option value="NORMAL">{{'islotrApp.Complexity.NORMAL' | translate}}</option>
+                        <option value="EASY">{{'islotrApp.Complexity.EASY' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.expedition.dispatchTime" for="field_dispatchTime">Dispatch Time</label>
+                    <div class="d-flex">
+                        <input id="field_dispatchTime" type="datetime-local" class="form-control" name="dispatchTime" formControlName="dispatchTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.expedition.deadLine" for="field_deadLine">Dead Line</label>
+                    <div class="input-group">
+                        <input id="field_deadLine" type="text" class="form-control" name="deadLine" ngbDatepicker  #deadLineDp="ngbDatepicker" formControlName="deadLine"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deadLineDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.expedition.rate" for="field_rate">Rate</label>
+                    <input type="number" class="form-control" name="rate" id="field_rate"
+                           formControlName="rate"/>
+                    <div *ngIf="editForm.get('rate').invalid && (editForm.get('rate').dirty || editForm.get('rate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rate').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rate').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 1 }">
+                            This field cannot be more than 1.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('rate')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="islotrApp.expedition.unit" for="field_unit">Unit</label>
+                    <select class="form-control" id="field_unit" name="unit" formControlName="unitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitOption.id" *ngFor="let unitOption of units; trackBy: trackUnitById">{{unitOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
